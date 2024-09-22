@@ -1,0 +1,10 @@
+Prosedur : 
+-Buat akun email js dengan 30 minute email
+-login akun github pages untuk upload file index & logo
+-integrasikan akun google yonsa ke emailjs
+-buat 16 akun
+
+Variabel : 
+target-email di template : {{pajitex}}
+isi dalam template : {{isi}}
+subject dalam template : Ada karyawan memberikan {{subject}}
