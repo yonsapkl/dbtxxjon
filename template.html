@@ -4,38 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanalisasi PT. Panggung Jaya Indah Textile</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .email-container {
+            max-width: 600px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+        header {
+            background-color: #c7e1fd; /* Warna biru cerah */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header img {
+            width: 150px;
+            margin-bottom: 10px;
+        }
+        header h1 {
+            margin: 10px 0 0;
+            font-size: 24px;
+            color: #555;
+        }
+        .email-content {
+            padding: 30px 40px;
+        }
+        .email-content h1 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        .email-content p, .email-content blockquote {
+            margin-bottom: 20px;
+            line-height: 1.5;
+            color: #555;
+        }
+        blockquote {
+            padding-left: 15px;
+            border-left: 4px solid #c7e1fd;
+            font-style: italic;
+            background-color: #f7f9fc; /* Latar belakang biru muda */
+            border-radius: 4px;
+        }
+        footer {
+            background-color: #f0f4f8;
+            color: #555;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            border-top: 1px solid #e0e0e0;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        footer a {
+            color: #c7e1fd;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .email-container {
+                width: 100%;
+            }
+            .email-content {
+                padding: 20px;
+            }
+            .email-content h1 {
+                font-size: 20px;
+            }
+            header h1 {
+                font-size: 20px;
+            }
+            header img {
+                width: 60px;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-    <header class="bg-white shadow">
-        <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
-            <img src="pajitex.png" alt="Logo" class="h-12">
-            <nav class="space-x-4">
-                <a href="#" class="text-gray-600 hover:text-gray-800">HRD Pajitex</a>
-                <!-- <a href="#" class="text-gray-600 hover:text-gray-800">About Us</a>
-                <a href="#" class="text-gray-600 hover:text-gray-800">Contact</a> -->
-            </nav>
-        </div>
-    </header>
-    
-    <main class="my-10">
-        <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-6">
-            <h1 class="text-2xl font-bold mb-4">Ada {{subject}} dari karyawan</h1>
-            <p class="mb-4">{{salam}},</p>
-            <blockquote class="border-l-4 border-gray-400 pl-4 italic mb-4">
+<body>
+    <div class="email-container">
+        <header>
+            <img src="https://yonsapkl.github.io/kanalisasi/pajitex.png" alt="Logo">
+            <h1>PT. Panggung Jaya Indah Textile</h1>
+        </header>
+
+        <div class="email-content">
+            <h1>Ada {{subject}} dari karyawan</h1>
+            <p>{{salam}},</p>
+            <blockquote>
                 {{pesan}}
             </blockquote>
-            <p class="mb-4">Email Karyawan : {{email}}</p>
-            <p class="mb-4">Semoga ada tindak lanjut. Terima kasih atas waktunya!</p>
+            <p>Email Karyawan: <strong>{{email}}</strong></p>
+            <p>Semoga ada tindak lanjut. Terima kasih atas waktunya!</p>
         </div>
-    </main>
 
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="max-w-7xl mx-auto px-4 text-center">
+        <footer>
             <p>&copy; 2024 PT. Panggung Jaya Indah Textile. All rights reserved.</p>
-            <p>Alamat: Jl. Watusalam No. 123, Kota pekalongan, Jawa Tengah</p>
-            <p>Email: mail.banggabersarung.com | Telepon: (021) 123-4567</p>
-        </div>
-    </footer>
+            <p>Alamat: Jl. Raya Kertoharjo No.60, Kota Pekalongan, Jawa Tengah 51252</p>
+            <p>Email: mail.banggabersarung.com | Telepon: (0285) 422191</p>
+        </footer>
+    </div>
 </body>
 </html>
