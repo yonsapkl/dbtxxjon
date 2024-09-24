@@ -108,60 +108,60 @@
 <script>
 // Inisialisasi Email.js dengan user ID Anda
 const userIds = [
-    'USER_ID_1',
-    'USER_ID_2',
+    'GjKELH7EAuDs2xqiN',
+    'PgCCYMzJY60hGIKuS',
     'USER_ID_3',
     'USER_ID_4',
     'USER_ID_5',
     'USER_ID_6',
     'L4XSgkWRAd0Au8IVI', // User ID ke-7
-    'USER_ID_8',
-    'USER_ID_9',
-    'USER_ID_10',
-    'USER_ID_11',
-    'USER_ID_12',
-    'USER_ID_13',
-    'USER_ID_14',
-    'USER_ID_15',
-    'USER_ID_16'
+    'gqgKoLH20gc2gfUTN',
+    'PId9dERgDcarGV-SL',
+    'TQ_MJJzgEoHSq3ZZ2',
+    '5Ll5Cq4P4jD4THxEk',
+    'wYHH50XUK3v0dTU5M',
+    'a-qhC0QCzVzZK6DIe',
+    'UGweLHrTZXFseKgwK',
+    '4-rQjWd6kmuEEXcrI',
+    'xQbP2E29jsfTDIOph'
 ];
 
 const serviceIds = [
-    'SERVICE_ID_1',
-    'SERVICE_ID_2',
+    'service_3o3424k',
+    'service_izbpvrl',
     'SERVICE_ID_3',
     'SERVICE_ID_4',
     'SERVICE_ID_5',
     'SERVICE_ID_6',
     'service_8u7zr9n', // Service ID ke-7
-    'SERVICE_ID_8',
-    'SERVICE_ID_9',
-    'SERVICE_ID_10',
-    'SERVICE_ID_11',
-    'SERVICE_ID_12',
-    'SERVICE_ID_13',
-    'SERVICE_ID_14',
-    'SERVICE_ID_15',
-    'SERVICE_ID_16'
+    'service_q3ak29f',
+    'service_xwo29rr',
+    'service_db77q4d',
+    'service_kuh7prh',
+    'service_rywc19r',
+    'service_49hrped',
+    'service_310e0ka',
+    'service_2dyjrhb',
+    'service_gbaqeaq'
 ];
 
 const templateIds = [
-    'TEMPLATE_ID_1',
-    'TEMPLATE_ID_2',
+    'template_hoop01i',
+    'template_wy3ksuv',
     'TEMPLATE_ID_3',
     'TEMPLATE_ID_4',
     'TEMPLATE_ID_5',
     'TEMPLATE_ID_6',
     'template_0smfbe7', // Template ID ke-7
-    'TEMPLATE_ID_8',
-    'TEMPLATE_ID_9',
-    'TEMPLATE_ID_10',
-    'TEMPLATE_ID_11',
-    'TEMPLATE_ID_12',
-    'TEMPLATE_ID_13',
-    'TEMPLATE_ID_14',
-    'TEMPLATE_ID_15',
-    'TEMPLATE_ID_16'
+    'template_ja85i65',
+    'template_7pi915v',
+    'template_h2b6gka0',
+    'template_48vf9oq',
+    'template_de1e5jz',
+    'template_6nd3q9j',
+    'template_fc3yif8',
+    'template_42nypxl',
+    'template_opvv7p3'
 ];
 
 // Mendapatkan hari saat ini untuk menentukan user, service, dan template ID
@@ -226,29 +226,8 @@ document.getElementById('kanalisasiForm').addEventListener('submit', function (e
     }
 });
 
-// Fungsi untuk mendapatkan salam berdasarkan waktu
-function getSalam() {
-    const sekarang = new Date();
-    const jam = sekarang.getHours();
-
-    let salam = "Assalamualaikum, selamat ";
-    if (jam < 12) {
-        salam += "pagi";
-    } else if (jam < 15) {
-        salam += "siang";
-    } else if (jam < 18) {
-        salam += "sore";
-    } else {
-        salam += "malam";
-    }
-
-    return salam;
-}
-
 // Fungsi untuk mengirim pesan melalui Email.js
-function kirimPesan(email, pesan, subject) {
-    // Buat salam berdasarkan waktu saat ini
-    const salam = getSalam();
+function kirimPesan(email, pesan, subject,) {
 
     // Buat objek data untuk dikirim ke Email.js
     const data = {
