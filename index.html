@@ -110,11 +110,11 @@
 const userIds = [
     'GjKELH7EAuDs2xqiN',
     'PgCCYMzJY60hGIKuS',
-    'L4XSgkWRAd0Au8IVI',
-    'L4XSgkWRAd0Au8IVI',
-    'L4XSgkWRAd0Au8IVI',
-    'L4XSgkWRAd0Au8IVI',
-    'L4XSgkWRAd0Au8IVI', // User ID ke-7
+    'KSJNq2aZEQ46cu9zy',
+    'agkTOMmbBbecjrmY5',
+    '7CghLJVAnMzZeYXCj',
+    '6xixEj-ah0GMjFYzU',
+    'L4XSgkWRAd0Au8IVI', // User ID ke-7 | Account ke 1
     'gqgKoLH20gc2gfUTN',
     'PId9dERgDcarGV-SL',
     'TQ_MJJzgEoHSq3ZZ2',
@@ -129,11 +129,11 @@ const userIds = [
 const serviceIds = [
     'service_3o3424k',
     'service_izbpvrl',
-    'service_8u7zr9n',
-    'service_8u7zr9n',
-    'service_8u7zr9n',
-    'service_8u7zr9n',
-    'service_8u7zr9n', // Service ID ke-7
+    'service_th5cfnu',
+    'service_mde1zk4',
+    'service_z227yek',
+    'service_89641zp',
+    'service_8u7zr9n', // Service ID ke-7 | Account ke 1
     'service_q3ak29f',
     'service_xwo29rr',
     'service_db77q4d',
@@ -148,11 +148,11 @@ const serviceIds = [
 const templateIds = [
     'template_hoop01i',
     'template_wy3ksuv',
-    'template_0smfbe7',
-    'template_0smfbe7',
-    'template_0smfbe7',
-    'template_0smfbe7',
-    'template_0smfbe7', // Template ID ke-7
+    'template_0tk2tpp',
+    'template_jjte9y9',
+    'template_bnp0coa',
+    'template_6x1gg5l',
+    'template_0smfbe7', // Template ID ke-7 | Account ke 1
     'template_ja85i65',
     'template_7pi915v',
     'template_h2b6gka',
@@ -196,9 +196,48 @@ document.getElementById('subject').addEventListener('change', function () {
     }
 });
 
+// Fungsi untuk mengecek apakah pengguna sudah mencapai batas pengiriman
+function cekBatasPengiriman() {
+    const dataPengiriman = JSON.parse(localStorage.getItem('pengirimanFormulir')) || [];
+    const sekarang = new Date();
+
+    // Hapus pengiriman yang lebih dari 5 hari yang lalu
+    const dataValid = dataPengiriman.filter(item => {
+        const selisihWaktu = Math.abs(sekarang - new Date(item));
+        const selisihHari = Math.ceil(selisihWaktu / (1000 * 60 * 60 * 24));
+        return selisihHari <= 5;
+    });
+
+    // Update data di localStorage dengan data yang valid
+    localStorage.setItem('pengirimanFormulir', JSON.stringify(dataValid));
+
+    return dataValid.length;
+}
+
+// Fungsi untuk menyimpan waktu pengiriman
+function simpanWaktuPengiriman() {
+    const dataPengiriman = JSON.parse(localStorage.getItem('pengirimanFormulir')) || [];
+    dataPengiriman.push(new Date()); // Simpan waktu pengiriman saat ini
+    localStorage.setItem('pengirimanFormulir', JSON.stringify(dataPengiriman));
+}
+
 // Fungsi yang akan dipanggil saat formulir dikirim
 document.getElementById('kanalisasiForm').addEventListener('submit', function (event) {
     event.preventDefault();
+
+    // Cek batas pengiriman sebelum melanjutkan
+    const jumlahPengiriman = cekBatasPengiriman();
+    if (jumlahPengiriman >= 2) {
+        Swal.fire({
+            title: 'Batas Pengiriman Tercapai',
+            text: 'Anda sudah mengirim 2 formulir. Tunggu tindak lanjut dari kami terlebih dahulu',
+            icon: 'error',
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: false
+        });
+        return;
+    }
 
     // Ambil nilai dari setiap input formulir
     const email = document.getElementById('email').value;
@@ -218,11 +257,15 @@ document.getElementById('kanalisasiForm').addEventListener('submit', function (e
             if (result.isConfirmed) {
                 // Lanjutkan untuk mengirim pesan
                 kirimPesan(email, pesan, subject);
+                // Setelah berhasil mengirim pesan, simpan waktu pengiriman
+                simpanWaktuPengiriman();
             }
         });
     } else {
         // Lanjutkan untuk mengirim pesan
         kirimPesan(email, pesan, subject);
+        // Setelah berhasil mengirim pesan, simpan waktu pengiriman
+        simpanWaktuPengiriman();
     }
 });
 
