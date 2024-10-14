@@ -227,10 +227,10 @@ document.getElementById('kanalisasiForm').addEventListener('submit', function (e
 
     // Cek batas pengiriman sebelum melanjutkan
     const jumlahPengiriman = cekBatasPengiriman();
-    if (jumlahPengiriman >= 2) {
+    if (jumlahPengiriman >= 1) {
         Swal.fire({
             title: 'Batas Pengiriman Tercapai',
-            text: 'Anda sudah mengirim 2 formulir. Tunggu tindak lanjut dari kami terlebih dahulu',
+            text: 'Anda sudah mengirim formulir. Tunggu tindak lanjut dari kami terlebih dahulu',
             icon: 'error',
             allowOutsideClick: false,
             allowEscapeKey: false,
@@ -277,7 +277,7 @@ function kirimPesan(email, pesan, subject,) {
         subject: subject,
         pesan: pesan,
         email: email,
-        pajitex: 'nadianahdi10@gmail.com', // Tambahkan email penerima (HRD) jika diperlukan
+        pajitex: 'nadianahdi10@gmail.com', // Tambahkan email penerima (HRD)
     };
 
     // Kirim data melalui Email.js
@@ -303,6 +303,8 @@ function kirimPesan(email, pesan, subject,) {
             });
         });
 }
+
+// pw google:--@Y0nsaa2p4jitenNNN44n
 
 </script>
 </body>
